@@ -1,0 +1,75 @@
+.main_chart{
+    margin-top: 50px;
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.main_chart .chart_view{
+    width: 75%;
+    height: 100%;
+
+}
+.main_chart .chart_view .AC{
+    height: 50%;
+
+}
+daily_chart_AC{
+    height: 50vh;
+} 
+
+.main_chart .chart_view .RJ{
+    height: 50%;
+
+}
+.main_chart .chart_search{
+    width: 20%;
+    height: 100%;
+    /* background-color: rgb(25, 247, 255); */
+    flex-direction: column;
+}
+
+.main_chart .chart_search .Start, .main_chart .chart_search .End{
+  padding: 10px;
+}
+.main_chart .chart_search .Start p, .main_chart .chart_search .End p{
+    padding:  10px 0px;
+    font-size: 25px;
+}
+
+.main_chart .chart_search .Start #time_start, .main_chart .chart_search .End #time_end{
+    width: 210px;
+    font-size: 16px;
+
+}
+.main_chart .chart_search .button{
+    padding: 10px;
+}
+.main_chart .chart_search #button {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+@media screen and (max-width: 1249px) {
+    .main_chart  {
+    flex-direction: column;
+    }
+    .main_chart .chart_view{
+        width: 95%;
+    
+    }
+    .main_chart .chart_search form {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    
+    }   
+    .main_chart .chart_search{
+        width: 100%;
+    }
+}

@@ -1,0 +1,89 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}NAS table{% endblock %}
+        {% block content %}
+        <div class="pagination">
+                <span class="step-links">
+                <!-- {% if page_obj.has_previous %}
+                        <a href="?page=1&search={{ data_search }}">&laquo; </a>
+                        <a href="?page={{ page_obj.previous_page_number }}}&search={{ data_search }}" > < </a>
+                {% endif %} -->
+                <a href="?page=1&search={{ data_search }}">&laquo; </a>
+                <a href="?page={{ pre_page }}&search={{ data_search }}" > < </a>
+                <span class="current">
+                        <!-- {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} -->
+                        {{page_number}}/ {{total_page}}
+                </span>
+        
+                <!-- {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}&search={{ data_search }}">></a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}&search={{ data_search }}">&raquo;</a>
+                {% endif %}
+             -->
+                <a href="?page={{next_page}}&search={{ data_search }}">></a>
+                <a href="?page={{ total_page}}&search={{ data_search }}">&raquo;</a>
+                </span>
+                <h1>{{session_max_rows}}</h1>
+                <div class="search_box">
+                        
+                        <form method="post" id="dropdown">
+                                {% csrf_token %}
+                                <select name="session_max_rows" id="sessionMaxRowsSelect" onchange="this.form.submit()">
+                                        <!-- <option value=""></option>                                     -->
+                                        <option value="25" {% if session_max_rows == "25" %} selected {% endif %}>25</option>
+                                        <option value="50" {% if session_max_rows == "50" %} selected {% endif %}>50</option>
+                                        <option value="100" {% if session_max_rows == "100" %} selected {% endif %}>100</option>
+                                        <option value="250" {% if session_max_rows == "250" %} selected {% endif %}>250</option>
+                                        <option value="500" {% if session_max_rows == "500" %} selected {% endif %}>500</option>
+                                </select>
+                        </form>
+<!-- 
+                        <form method="post">
+                                {% csrf_token %}
+                                <input type="text" name="search_value" id="searchInput" value="{{ data_search}}">
+                               
+                                <a href="?page={{ page_obj.paginator.num_pages }}&search={{ data_search }}"> <button type="submit" >Search</button></a>
+                                <input type="hidden" name="page" value="{{ page_obj.number }}"> 
+                        </form> -->
+                        <form method="get">
+                                <input type="hidden" name="page" value="{{ page_obj.number }}">
+                                <input type="text" name="search" id="searchInput" value="{{ request.GET.search }}">
+                                <button type="submit">Search</button>
+                        </form>
+                            
+                </div>
+                
+        </div>
+        <table id="mytables" class="table table-holover">
+                <thead> 
+                <tr>
+                    <th>id</th>
+                    <th>User</th>
+                    <th>Ip route</th>
+                    <th>Reply</th>
+                    <th>MAC</th>
+                    <th>authdate</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for row in page_obj  %}
+                        <tr>
+                            <td>{{row.0}}</td>
+                            <td><a href="?page={{ page_obj.number }}&search={{ row.1 }}">{{ row.1 }}</a></td>
+                            <td><a href="?page={{ page_obj.number }}&search={{ row.2 }}">{{ row.2 }}</a></td>
+                            <td><a href="?page={{ page_obj.number }}&search={{ row.3 }}">{{ row.3 }}</a></td>
+                            <td><a href="?page={{ page_obj.number }}&search={{ row.4 }}">{{ row.4 }}</a></td>
+                            <td><a href="?page={{ page_obj.number }}&search={{ row.5 }}">{{ row.5 }}</a></td>
+                            <!-- <td>{{row.1}}</td> -->
+                            <!-- <td>{{row.2}}</td>
+                            <td>{{row.3}}</td>
+                            <td>{{row.4}}</td>
+                            <td>{{row.5}}</td> -->
+                        </tr>
+                    {% endfor %} 
+                </tbody>
+               
+        </table>
+        <!-- Các liên kết phân trang -->
+        {% endblock %}
+

@@ -1,0 +1,48 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <h1>CHART</h1>
+    <div class="main_chart">
+        <div class="chart_view">
+            <div class="AC">
+                <script>
+                    var chart_data = JSON.parse('{{ chart_data|escapejs }}');
+                    //console.log(chart_data)
+                </script>
+                
+                <!-- <h3>{{ data }}</h3>
+                <h4>{{hours}}</h4> -->
+                <!-- <canvas id="daily_chart_AC" style="height: 600px;"></canvas> -->
+                <div id="daily_chart_AC" style="height: 600px;"></div>
+                <script  src="{% static 'js/chart_daily_AC.js' %}"></script>
+            </div>
+        </div>
+       
+        <div class="chart_search">  
+            <form method="POST">
+                {% csrf_token %}
+                <div class="Start">
+                    <p>Thời gian bắt đầu: </p>
+                    <input type="datetime-local" id="time_start" name="time_start" value="{{ start_time|date:'Y-m-d\TH:i' }}">
+                </div>
+
+                <div class="End">
+                    <p>Thời gian kết thúc: </p>
+                    <input type="datetime-local" id="time_end" name="time_end" value="{{ end_time|date:'Y-m-d\TH:i' }}">
+                </div>
+
+                <div class="button">
+                    <input id="button" type="submit" value="Search">
+                </div>
+                
+                
+            </form>
+        </div>
+    </div>  
+  
+{% endblock %}

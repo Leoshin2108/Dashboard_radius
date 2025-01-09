@@ -1,0 +1,58 @@
+.chart {
+    display: flex;
+    margin-top: 100px;
+    height: 80%;
+    justify-content: space-between;
+}
+
+.chart .chart-login {
+    margin-left: 20px;
+    /* float: left; */
+    height: 100%;
+    width: 70%;
+}
+
+
+.chart .chart-postauth {
+    margin-right: 10px;
+    height: 100%;
+    width: 30%;
+    /* float: right; */
+}
+
+
+.chart .chart-postauth .tables-top {
+    display: flex;
+    justify-content: space-between;
+    width: 20vw;
+}
+
+.chart .chart-postauth .tables-top th {
+    color: rgb(28, 5, 238);
+}
+
+#topRJ th, #topAC th {
+    height: 50px;
+}
+
+#topRJ td, #topAC td {
+    height: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    .chart  {
+    flex-direction: column;
+    }
+    .chart .chart-login {
+        width: 95%;
+    }
+    .chart .chart-postauth {
+        width: 100%;
+        /* float: right; */
+    }
+    .chart .chart-postauth canvas {
+        height: 300px !important;
+        width: 100% !important;
+        
+    }
+}

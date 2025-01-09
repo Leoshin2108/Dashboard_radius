@@ -1,0 +1,62 @@
+{% extends "home/base.html" %}
+{% load static %}
+<!-- {% block title %}HOME{% endblock %} -->
+{% block content %}
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<div class="chart">
+    {% csrf_token %}
+    <div class="chart-login" >
+        <div id="population-chart" data-url="{% url 'get_chart_home' %}"></div>
+        <script  src="{% static 'js/chart_home.js' %}"></script>
+    </div>
+    <div class="chart-postauth">
+        <div id="chart_AC_RJ" data-url="{% url 'chart_AC_RJ' %}"></div>
+        <script  src="{% static 'js/chart_AC_RJ.js' %}"></script>
+
+
+        <div class ="tables-top">
+            <table id="topAC" class="table table-holover">
+                <thead> 
+                <tr>
+                    <th colspan="2">ACCEPT</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for row in ac  %}
+                    <tr>
+                        <td>{{row.0}}</td>
+                        <td>{{row.1}}</td>
+                    </tr>
+                    {% endfor %}
+                
+                </tbody>
+               
+            </table>
+    
+            <table id="topRJ" class="table table-holover">
+                <thead> 
+                <tr>
+                    <th colspan="2">REJECT</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for row in rj  %}
+                    <tr>
+                        <td>{{row.0}}</td>
+                        <td>{{row.1}}</td>
+                    </tr>
+                    {% endfor %}  
+                </tbody>
+            </table>
+
+        </div>
+       
+    </div>
+    
+</div>
+
+{% endblock %}

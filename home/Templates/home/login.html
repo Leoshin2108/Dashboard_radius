@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <title>RADIUS Authentication</title>
+</head>
+<body>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="post" action="{% url 'login_auth' %}">
+                    {% csrf_token %}
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <label for="username">Username:</label>
+                        <input type="text" class="login__input" id="username" name="username" required placeholder="User name / Email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <label for="password">Password:</label>
+                        <input type="password" class="login__input" id="password" name="password" required placeholder="Password">
+                    </div>
+                    <input type="submit" value="Login">				
+                </form>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div>
+    </div>
+    <!-- <h1>RADIUS Authentication Example</h1>
+    <form method="post" action="{% url 'login_auth' %}">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Login">	
+    </form> -->
+</body>
+</html>
+

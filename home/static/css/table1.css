@@ -1,0 +1,54 @@
+table {
+    width: 60vw;
+    max-height: 90%;
+    margin-left: 50px ;
+    border-radius: 10%;
+}
+
+table,td, th{
+    border: 1px solid #333;
+    border-collapse: collapse;
+}
+
+td,th{
+    padding: 5px 10px;
+}
+
+th{
+    background-color: rgb(123, 192, 248);
+}
+
+td{
+text-align: left;;
+}
+.table.table-holover {
+    margin-top: 10px;
+}
+.table.table-holover tbody tr:hover{
+    background: rgb(144, 183, 216);
+
+}
+
+.pagination{
+ margin-left: 50px;
+ text-align: left;
+ width: 60vw;
+ background-color: rgb(151, 226, 253);
+ display: flex;
+ justify-content: space-between;
+ border-radius: 10px;
+}
+
+.pagination a{
+    color: blue;
+    padding: 10px 5px;
+    display: inline-block;
+}
+
+.pagination form{
+    padding: 10px;
+    align-items: center;
+}
+.pagination .search_box{
+    display: flex;
+}

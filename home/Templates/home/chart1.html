@@ -1,0 +1,13 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}Về chúng tôi - Radius{% endblock %}
+{% block content %}
+    <h1>Login Chart</h1>
+    <!-- <script>
+        setInterval(function() {
+            location.reload();
+        }, 10000); // Tải lại trang sau mỗi 5 giây
+    </script> -->
+    <img id="chart" src="data:image/png;base64,{{ graph }}" alt="Chart">
+{% endblock %}
